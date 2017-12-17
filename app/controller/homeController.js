@@ -1,4 +1,4 @@
-﻿app.controller("homeController", function ($scope,$rootScope) {
+﻿app.controller("homeController",['$scope','$rootScope', function ($scope,$rootScope) {
 
    
-});
+}]);

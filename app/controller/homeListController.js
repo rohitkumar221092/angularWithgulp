@@ -1,4 +1,4 @@
-﻿app.controller("homeListController", function ($scope, $rootScope) {
+﻿app.controller("homeListController",['$scope','$rootScope', function ($scope, $rootScope) {
 
     $rootScope.heroList = [
                             { id: 1, name: 'rohit' },
@@ -7,4 +7,4 @@
                             { id: 4, name: 'rohit4' },
                             { id: 5, name: 'rohit5' }]
 
-});
+}]);

@@ -1,4 +1,4 @@
-﻿app.directive("goToTop", function ($window) {
+﻿app.directive("goToTop",['$window',function ($window) {
 
     return {
         restrict:'E',
@@ -20,4 +20,4 @@
             })
         }
     }
-})
+}])

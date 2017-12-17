@@ -1,4 +1,4 @@
-app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider','$urlRouterProvider','$locationProvider',function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/home');
 
@@ -27,4 +27,4 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         requireBase: false
     });
 
-});
+}]);
