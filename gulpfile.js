@@ -17,6 +17,17 @@ gulp.src(['app/module.js','app/run/run.js','app/directives/*.js','app/config.js'
 gulp.task('connect', function () {
     connect.server({
         root: 'app/',
-        port: 8888
+        port: 8888,
+        livereload: true
     });
 });
+
+gulp.task('html', function () {
+    gulp.src('app/*.html')
+        .pipe(connect.reload());
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['app/*.html'], ['html']);
+});
+gulp.task('run', ['scripts', 'connect','watch']);
