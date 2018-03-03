@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var connect = require('gulp-connect');
 var concat=require('gulp-concat');
 var uglify=require('gulp-uglify');
+var refresh=require('gulp-refresh')
 
 gulp.task('scripts',function(){
 gulp.src(['app/module.js','app/run/run.js','app/directives/*.js','app/config.js','app/route/route.js','app/controller/*.js'])
@@ -13,6 +14,7 @@ gulp.src(['app/module.js','app/run/run.js','app/directives/*.js','app/config.js'
     .pipe(gulp.dest('app/minifiedJS'))
 
 })
+
 
 gulp.task('connect', function () {
     connect.server({
@@ -24,10 +26,12 @@ gulp.task('connect', function () {
 
 gulp.task('html', function () {
     gulp.src('app/*.html')
-        .pipe(connect.reload());
+        .pipe(connect.reload())
+        .pipe(refresh());
 });
 
 gulp.task('watch', function () {
+    refresh.listen();
     gulp.watch(['app/*.html'], ['html']);
 });
-gulp.task('run', ['scripts', 'connect','watch']);
+gulp.task('run', [ 'connect','watch']);
